@@ -8,12 +8,20 @@
         Title="Окно продукта" Height="184" Width="200"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="NameBox" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="160"/>
-        <TextBox x:Name="PriceBox" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top" Width="160"/>
-        <DatePicker x:Name="DatePicker" IsEnabled="{Binding Is_sub}" HorizontalAlignment="Left" Margin="10,82,0,0" 
-                    VerticalAlignment="Top" SelectedDate="{Binding Sub_end}" Width="140"/>
-        <CheckBox IsChecked="{Binding Is_sub}" HorizontalAlignment="Left" Margin="155,91,0,0" VerticalAlignment="Top"/>
-        <Button Content="Подтвердить" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" x:Name="NameBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" Width="160"/>
+        <TextBox Grid.Row="1" x:Name="PriceBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Center" Width="160"/>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DatePicker x:Name="DatePicker" IsEnabled="{Binding Is_sub}" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" SelectedDate="{Binding Sub_end}" Width="140"/>
+            <CheckBox IsChecked="{Binding Is_sub}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </WrapPanel>
+        <Button Grid.Row="3" Content="Подтвердить" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Click="Button_Click"/>
 
     </Grid>
 </Window>

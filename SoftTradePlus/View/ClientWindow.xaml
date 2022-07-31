@@ -5,44 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SoftTradePlus"
         mc:Ignorable="d"
-        Title="Client" Height="245" Width="252">
+        Title="Client" Height="245" Width="252"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="nameBox"  HorizontalAlignment="Center" Margin="0,37,0,0" TextWrapping="Wrap" 
-                 Text="{Binding Path= Client.Name}" VerticalAlignment="Top" Width="120"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="nameBox" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" 
+                 Text="{Binding Path= Client.Name}" VerticalAlignment="Center" Width="120"/>
 
-        <ComboBox x:Name="ManagerCombobox" ItemsSource="{Binding Managers}" 
-                  HorizontalAlignment="Center" Margin="0,74,0,0" 
-                  VerticalAlignment="Top" Width="120" 
-                  SelectedItem="{Binding Path=Client.Manager}">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Id}"/>
-                        <TextBlock Text=" - "/>
-                        <TextBlock Text="{Binding Path=Name}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <Rectangle x:Name="ManagerWarning" HorizontalAlignment="Left" Height="11" Margin="191,79,0,0" Stroke="White" VerticalAlignment="Top" Width="11" Fill="White"/>
-
-        <ComboBox x:Name="StatusCombobox" 
-                  ItemsSource="{Binding Statuses}" HorizontalAlignment="Center"
-                  Margin="0,115,0,0" VerticalAlignment="Top" Width="120"
-                  SelectedItem="{Binding Path=Client.ClientStatus}">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Id}"/>
-                        <TextBlock Text=" - "/>
-                        <TextBlock Text="{Binding Path=Name}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <Rectangle x:Name="StatusWarning" HorizontalAlignment="Left" Height="11" Margin="191,120,0,0" Stroke="White" VerticalAlignment="Top" Width="11" Fill="White"/>
+        <WrapPanel  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ComboBox x:Name="ManagerCombobox" ItemsSource="{Binding Managers}" 
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Top" Width="120" 
+                      SelectedItem="{Binding Path=Client.Manager}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Id}"/>
+                            <TextBlock Text=" - "/>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         
-        <Button Content="Подтвердить" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+            <Rectangle x:Name="ManagerWarning" HorizontalAlignment="Left" Height="11" Stroke="White" Width="11" Fill="White"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ComboBox x:Name="StatusCombobox" 
+                      ItemsSource="{Binding Statuses}" HorizontalAlignment="Center"
+                      VerticalAlignment="Center" Width="120"
+                      SelectedItem="{Binding Path=Client.ClientStatus}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Id}"/>
+                            <TextBlock Text=" - "/>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Rectangle x:Name="StatusWarning" HorizontalAlignment="Left" Height="11" Stroke="White" VerticalAlignment="Top" Width="11" Fill="White"/>
+        </WrapPanel>
+        
+        <Button Grid.Row="3" Content="Подтвердить" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
 
     </Grid>
 </Window>

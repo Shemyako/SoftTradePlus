@@ -8,8 +8,13 @@
         Title="Подтвердить?" Height="75" Width="144"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Да" BorderThickness="0" Foreground="YellowGreen" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="50" Background="Green" Click="Button_Click"/>
-        <Button Content="Нет" BorderThickness="0" Foreground="DarkRed" HorizontalAlignment="Left" Margin="84,23,0,0" VerticalAlignment="Top" Background="Red" Width="50" Click="Button_Click_1"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Да" BorderThickness="0" Foreground="YellowGreen" Width="50" Background="Green" Click="Button_Click"/>
+        <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Нет" BorderThickness="0" Foreground="DarkRed" Background="Red" Width="50" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

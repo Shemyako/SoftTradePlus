@@ -6,10 +6,16 @@
         xmlns:local="clr-namespace:SoftTradePlus"
         mc:Ignorable="d"
         Title="Окно менеджера" Height="197" Width="225"
+        WindowStartupLocation="CenterScreen"
         x:Name="managerWindow">
     <Grid>
-        <TextBox x:Name="userName" HorizontalAlignment="Center" Margin="0,51,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="206"/>
-        <Button Content="Подтвердить" HorizontalAlignment="Center" Margin="0,129,0,0" VerticalAlignment="Top" Click="Button_Click" Width="205"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBox x:Name="userName" Grid.Row="0" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" Width="206"/>
+        <Button Content="Подтвердить" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" Width="205"/>
 
     </Grid>
 </Window>

@@ -26,10 +26,11 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <WrapPanel Grid.Row="1" ItemWidth="250" HorizontalAlignment="Center">
+                    <WrapPanel Grid.Row="1" ItemWidth="180" HorizontalAlignment="Center">
                         <Button Content="Создать" Command="{Binding AddManager}"/>
                         <Button Content="Изменить" Command="{Binding EditManager}" CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}"/>
                         <Button Content="Удалить" Command="{Binding DeleteManager}" CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}"/>
+                        <Button Content="Клиенты менеджера" Command="{Binding ManagersClients}" CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}"/>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -58,6 +59,7 @@
                         <Button Content="Создать" Command="{Binding AddClient}" Margin="10"/>
                         <Button Content="Изменить" Command="{Binding EditClient}" CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}" Margin="10"/>
                         <Button Content="Удалить" Command="{Binding DeleteClient}" CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}" Margin="10"/>
+                        <Button Content="Твары клиента" Command="{Binding ClietnsProducts}" CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}"/>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -95,15 +97,13 @@
                 <TabItem.Header>
                     <TextBlock Text="Продажи"/>
                 </TabItem.Header>
-                <Grid>
-                    <TabControl>
-                        <TabItem>
-                            <TabItem.Header>
-                                <TextBlock Text=""
-                            </TabItem.Header>
-                        </TabItem>
-                    </TabControl>
-                </Grid>
+                <ListView DataContext="{Binding Clients}" ItemsSource="{Binding Products}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="a" DisplayMemberBinding="{Binding Path=Id}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </TabItem>
         </TabControl>
         
