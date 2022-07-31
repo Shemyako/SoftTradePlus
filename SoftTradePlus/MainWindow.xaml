@@ -43,13 +43,14 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <ListView x:Name="ClientsView" ItemsSource="{Binding Clients}">
+                    <ListView x:Name="ClientsView" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=Id}"/>
                                 <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}"/>
                                 <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Path=ClientStatus.Name}"/>
                                 <GridViewColumn Header="Менеджер" DisplayMemberBinding="{Binding Path=Manager.Name}"/>
+                                <GridViewColumn Header="Id Менеджера" DisplayMemberBinding="{Binding Path=Manager.Id}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -82,11 +83,26 @@
                         </ListView.View>
                     </ListView>
                     <WrapPanel Grid.Row="1" ItemWidth="190" HorizontalAlignment="Center">
-                        <Button Content="Продать" Command="{Binding Sell_to_client}" Margin="10"/>
+                        <Button Content="Продать" Command="{Binding SellProduct}" CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" Margin="10"/>
                         <Button Content="Создать" Command="{Binding AddProduct}" Margin="10"/>
                         <Button Content="Изменить" Command="{Binding EditProduct}" CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" Margin="10"/>
                         <Button Content="Удалить" Command="{Binding DeleteProduct}" CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" Margin="10"/>
                     </WrapPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Продажи"/>
+                </TabItem.Header>
+                <Grid>
+                    <TabControl>
+                        <TabItem>
+                            <TabItem.Header>
+                                <TextBlock Text=""
+                            </TabItem.Header>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </TabItem>
         </TabControl>

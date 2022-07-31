@@ -24,6 +24,7 @@ namespace SoftTradePlus.VievModel
         RelayCommand? addClient;
         RelayCommand? editClient;
         RelayCommand? deleteClient;
+        RelayCommand? sellProduct;
         public DataManageVM()
         {
             Clients = db.Clients.ToList();
@@ -243,6 +244,13 @@ namespace SoftTradePlus.VievModel
         #endregion
 
         #region METHODS TO WORK WITH CUSTOMER
+
+        private Client selected_Client;
+        public Client SelectedClient
+        {
+            get { return selected_Client; }
+            set { selected_Client = value; }
+        }
         private Client? Check_Client(Client client)
         {
             ClientWindow clientWindows = new ClientWindow(client, Managers, Statuses);
@@ -353,7 +361,31 @@ namespace SoftTradePlus.VievModel
 
         #region METHODS TO SELL PRODUCT
 
+        public RelayCommand SellProduct
+        {
+            get
+            {
+                return sellProduct ??
+                    (sellProduct = new RelayCommand((selectedProduct) =>
+                    {
+                        
+                        View.ConfirmWindow confirmWindow = new View.ConfirmWindow();
+                        if (confirmWindow.ShowDialog() == true && selectedProduct is not null)
+                        {
+                            Client? cl = db.Clients.FirstOrDefault(d => d.Id == SelectedClient.Id);
+                            Product? product = db.Products.FirstOrDefault(p => p.Id == (selectedProduct as Product).Id);
+                            if (cl is null || product is null) return;
+                            
+                            
+                            cl.Products.Add(product);
+                            db.SaveChanges();
+                        }
 
+
+                        
+                    }));
+            }
+        }
 
         #endregion
     }
