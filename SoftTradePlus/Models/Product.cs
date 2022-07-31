@@ -14,9 +14,10 @@ namespace SoftTradePlus.Models
         private string _name;
         private float _price;
         private bool _is_sub;
-        private DateTime _sub_end;
+        private DateTime? _sub_end;
+        //private List<Client> _clients;
 
-        public List<Client>? Clients { get; set; }
+        public List<Client> Clients { get; set; } = new List<Client>();
         public int Id { 
             get { return _id; } 
             set { _id = value; OnPropertyChanged("Id"); }
@@ -33,7 +34,7 @@ namespace SoftTradePlus.Models
             get { return _is_sub; } 
             set { _is_sub = value; OnPropertyChanged("Is_sub"); }
         }
-        public DateTime Sub_end {
+        public DateTime? Sub_end {
             get { return _sub_end; } 
             set { _sub_end = value; OnPropertyChanged("Sub_end"); }
         }

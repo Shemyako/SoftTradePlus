@@ -19,9 +19,12 @@ namespace SoftTradePlus.View
     /// </summary>
     public partial class ClietnsProductsWindow : Window
     {
-        public ClietnsProductsWindow()
+        public List<Models.Product> Products { get; set; }
+        public ClietnsProductsWindow(List<Models.Product> product)
         {
             InitializeComponent();
+            Products = product;
+            DataContext = this;
         }
     }
 }

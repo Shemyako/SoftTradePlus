@@ -12,8 +12,8 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
-        <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Да" BorderThickness="0" Foreground="YellowGreen" Width="50" Background="Green" Click="Button_Click"/>
+
+        <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Да" BorderThickness="0" Foreground="YellowGreen" Background="Green" Width="50" Click="Button_Click"/>
         <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Нет" BorderThickness="0" Foreground="DarkRed" Background="Red" Width="50" Click="Button_Click_1"/>
 
     </Grid>

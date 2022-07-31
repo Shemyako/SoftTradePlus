@@ -19,9 +19,12 @@ namespace SoftTradePlus.View
     /// </summary>
     public partial class ManagersClientsWindow : Window
     {
-        public ManagersClientsWindow()
+        public List<Models.Client> Clients { get; set; }
+        public ManagersClientsWindow(List<Models.Client> clients)
         {
             InitializeComponent();
+            Clients = clients;
+            DataContext = this;
         }
     }
 }

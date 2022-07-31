@@ -12,7 +12,7 @@ using SoftTradePlus;
 namespace SoftTradePlus.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220730100654_Initial")]
+    [Migration("20220731194217_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,29 @@ namespace SoftTradePlus.Migrations
                     b.HasIndex("ManagerId");
 
                     b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("SoftTradePlus.Models.ClientProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ClientProducts");
                 });
 
             modelBuilder.Entity("SoftTradePlus.Models.ClientStatus", b =>
@@ -118,7 +141,7 @@ namespace SoftTradePlus.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<DateTime>("Sub_end")
+                    b.Property<DateTime?>("Sub_end")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -158,6 +181,25 @@ namespace SoftTradePlus.Migrations
                     b.Navigation("ClientStatus");
 
                     b.Navigation("Manager");
+                });
+
+            modelBuilder.Entity("SoftTradePlus.Models.ClientProduct", b =>
+                {
+                    b.HasOne("SoftTradePlus.Models.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SoftTradePlus.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("SoftTradePlus.Models.ClientStatus", b =>

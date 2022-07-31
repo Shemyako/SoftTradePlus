@@ -26,11 +26,21 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <WrapPanel Grid.Row="1" ItemWidth="180" HorizontalAlignment="Center">
-                        <Button Content="Создать" Command="{Binding AddManager}"/>
-                        <Button Content="Изменить" Command="{Binding EditManager}" CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}"/>
-                        <Button Content="Удалить" Command="{Binding DeleteManager}" CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}"/>
-                        <Button Content="Клиенты менеджера" Command="{Binding ManagersClients}" CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}"/>
+                    <WrapPanel Grid.Row="1" ItemWidth="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Content="Создать" Foreground="YellowGreen" Background="Green" 
+                                Command="{Binding AddManager}" Margin="10"/>
+                        <Button Content="Изменить" 
+                                Command="{Binding EditManager}" 
+                                CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}" 
+                                Margin="10"/>
+                        <Button Content="Удалить" Foreground="DarkRed" Background="Red"  
+                                Command="{Binding DeleteManager}" 
+                                CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}" 
+                                Margin="10"/>
+                        <Button Content="Клиенты менеджера" 
+                                Command="{Binding ManagersClients}" 
+                                CommandParameter="{Binding ElementName=ManagersView, Path=SelectedItem}" 
+                                Margin="10"/>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -55,11 +65,21 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <WrapPanel Grid.Row="1" ItemWidth="190"  HorizontalAlignment="Center">
-                        <Button Content="Создать" Command="{Binding AddClient}" Margin="10"/>
-                        <Button Content="Изменить" Command="{Binding EditClient}" CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}" Margin="10"/>
-                        <Button Content="Удалить" Command="{Binding DeleteClient}" CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}" Margin="10"/>
-                        <Button Content="Твары клиента" Command="{Binding ClietnsProducts}" CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}"/>
+                    <WrapPanel Grid.Row="1" ItemWidth="190"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Content="Создать" Foreground="YellowGreen" Background="Green" 
+                                Command="{Binding AddClient}" Margin="10"/>
+                        <Button Content="Изменить" 
+                                Command="{Binding EditClient}" 
+                                CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}" 
+                                Margin="10"/>
+                        <Button Content="Удалить" Foreground="DarkRed" Background="Red" 
+                                Command="{Binding DeleteClient}" 
+                                CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}" 
+                                Margin="10"/>
+                        <Button Content="Твары клиента" 
+                                Command="{Binding ClietnsProducts}" 
+                                CommandParameter="{Binding ElementName=ClientsView, Path=SelectedItem}" 
+                                Margin="10"/>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -84,27 +104,26 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <WrapPanel Grid.Row="1" ItemWidth="190" HorizontalAlignment="Center">
-                        <Button Content="Продать" Command="{Binding SellProduct}" CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" Margin="10"/>
-                        <Button Content="Создать" Command="{Binding AddProduct}" Margin="10"/>
-                        <Button Content="Изменить" Command="{Binding EditProduct}" CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" Margin="10"/>
-                        <Button Content="Удалить" Command="{Binding DeleteProduct}" CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" Margin="10"/>
+                    <WrapPanel Grid.Row="1" ItemWidth="190" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Content="Создать" Foreground="YellowGreen" Background="Green" 
+                                Command="{Binding AddProduct}" Margin="10"/>
+                        <Button Content="Изменить" 
+                                Command="{Binding EditProduct}" 
+                                CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" 
+                                Margin="10"/>
+                        <Button Content="Удалить" Foreground="DarkRed" Background="Red" 
+                                Command="{Binding DeleteProduct}" 
+                                CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" 
+                                Margin="10"/>
+                        <Button Content="Продать" 
+                                Command="{Binding SellProduct}" 
+                                CommandParameter="{Binding ElementName=ProductsView, Path=SelectedItem}" 
+                                Margin="10"/>
                     </WrapPanel>
                 </Grid>
             </TabItem>
 
-            <TabItem>
-                <TabItem.Header>
-                    <TextBlock Text="Продажи"/>
-                </TabItem.Header>
-                <ListView DataContext="{Binding Clients}" ItemsSource="{Binding Products}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="a" DisplayMemberBinding="{Binding Path=Id}"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </TabItem>
+            
         </TabControl>
         
     </Grid>

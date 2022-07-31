@@ -28,7 +28,7 @@ namespace SoftTradePlus
             InitializeComponent();
             DataContext = new VievModel.DataManageVM();
             viewManager = ManagersView;
-            //viewProduct = ProductsView;
+            viewProduct = ProductsView;
             viewClient = ClientsView;
         }
 

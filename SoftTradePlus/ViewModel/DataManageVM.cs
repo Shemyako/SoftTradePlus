@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Microsoft.EntityFrameworkCore;
 
 namespace SoftTradePlus.VievModel
 {
@@ -25,6 +26,8 @@ namespace SoftTradePlus.VievModel
         RelayCommand? editClient;
         RelayCommand? deleteClient;
         RelayCommand? sellProduct;
+        RelayCommand? clietnsProducts;
+        RelayCommand? managersClients;
         public DataManageVM()
         {
             Clients = db.Clients.ToList();
@@ -180,6 +183,9 @@ namespace SoftTradePlus.VievModel
                         Product? product = Check_Product(new Product());
                         if (product is not null)
                         {
+                            if (product.Is_sub == false)
+                                product.Sub_end = null;
+
                             db.Products.Add(product);
                             db.SaveChanges();
 
@@ -187,6 +193,7 @@ namespace SoftTradePlus.VievModel
                             Products = db.Products.ToList();
 
                             MainWindow.viewProduct.ItemsSource = Products;
+
                         }
                     }));
             }
@@ -210,6 +217,9 @@ namespace SoftTradePlus.VievModel
 
                         if (product is not null)
                         {
+                            if (product.Is_sub == false)
+                                product.Sub_end = null;
+
                             pd.Name = product.Name;
 
                             db.SaveChanges();
@@ -254,7 +264,6 @@ namespace SoftTradePlus.VievModel
         private Client? Check_Client(Client client)
         {
             ClientWindow clientWindows = new ClientWindow(client, Managers, Statuses);
-            clientWindows.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             bool? result = clientWindows.ShowDialog();
 
             while (result == true)
@@ -372,8 +381,9 @@ namespace SoftTradePlus.VievModel
                         View.ConfirmWindow confirmWindow = new View.ConfirmWindow();
                         if (confirmWindow.ShowDialog() == true && selectedProduct is not null)
                         {
+                            Product? sp = (Product)selectedProduct;
                             Client? cl = db.Clients.FirstOrDefault(d => d.Id == SelectedClient.Id);
-                            Product? product = db.Products.FirstOrDefault(p => p.Id == (selectedProduct as Product).Id);
+                            Product? product = db.Products.FirstOrDefault(p => p.Id == sp.Id);
                             if (cl is null || product is null) return;
                             
                             
@@ -383,6 +393,53 @@ namespace SoftTradePlus.VievModel
 
 
                         
+                    }));
+            }
+        }
+
+        #endregion
+
+        #region METHODS TO SHOW REPORTS
+
+        public RelayCommand ClietnsProducts
+        {
+            get
+            {
+                return clietnsProducts ??
+                    (clietnsProducts = new RelayCommand((selectedItem) =>
+                    {
+                        Client? client = (Client?)selectedItem;
+                        if (client is null)
+                            return;
+
+                        //Client? cl = db.Clients.FirstOrDefault(d => d.Id == client.Id);
+                        Client? cl = db.Clients.Include(dd => dd.Products).FirstOrDefault( dd => dd.Id == client.Id);
+                        if (cl is null) return;
+
+                        View.ClietnsProductsWindow clietnsProductsWindow = new View.ClietnsProductsWindow(cl.Products);
+                        clietnsProductsWindow.ShowDialog();
+
+                    }));
+            }
+        }
+
+        public RelayCommand ManagersClients
+        {
+            get
+            {
+                return managersClients ??
+                    (managersClients = new RelayCommand((selectedItem) =>
+                    {
+                        Manager? manager = (Manager?)selectedItem;
+                        if (manager is null)
+                            return;
+
+                        Manager? mg = db.Managers.Include(i => i.Clients).FirstOrDefault(dd => dd.Id == manager.Id);
+                        if (mg is null) return;
+
+                        View.ManagersClientsWindow managersClientsWindow = new View.ManagersClientsWindow(mg.Clients);
+                        managersClientsWindow.ShowDialog();
+
                     }));
             }
         }

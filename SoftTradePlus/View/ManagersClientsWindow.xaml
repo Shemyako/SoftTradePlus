@@ -8,7 +8,7 @@
         Title="ManagersClientsWindow" Height="425" Width="400"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListView x:Name="ClientsView" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}">
+        <ListView x:Name="ClientsView" ItemsSource="{Binding Clients}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=Id}"/>
