@@ -379,7 +379,7 @@ namespace SoftTradePlus.VievModel
                     {
                         
                         View.ConfirmWindow confirmWindow = new View.ConfirmWindow();
-                        if (confirmWindow.ShowDialog() == true && selectedProduct is not null)
+                        if (confirmWindow.ShowDialog() == true && selectedProduct is not null && selected_Client is not null)
                         {
                             Product? sp = (Product)selectedProduct;
                             Client? cl = db.Clients.FirstOrDefault(d => d.Id == SelectedClient.Id);
@@ -389,6 +389,11 @@ namespace SoftTradePlus.VievModel
                             
                             cl.Products.Add(product);
                             db.SaveChanges();
+                        }
+                        else
+                        {
+                            View.ShowTextWindow showTextWindow = new View.ShowTextWindow("Выберите клиента и продукт!");
+                            showTextWindow.ShowDialog();
                         }
 
 

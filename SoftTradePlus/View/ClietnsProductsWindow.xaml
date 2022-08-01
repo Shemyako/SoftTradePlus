@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:SoftTradePlus.View"
         mc:Ignorable="d"
         Title="ClietnsProductsWindow" Height="425" Width="400"
+        MinHeight="425" MinWidth="400"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <ListView x:Name="ProductsView" ItemsSource="{Binding Products}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=Id}"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=Id}"/>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}"/>
                     <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Path=Price}"/>
                     <GridViewColumn Header="Подписка ли" DisplayMemberBinding="{Binding Path=Is_sub}"/>

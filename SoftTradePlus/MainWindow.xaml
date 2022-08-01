@@ -21,7 +21,7 @@
                     <ListView x:Name="ManagersView"  ItemsSource="{Binding Managers}" >
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
                                 <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}" Width="100"/>
                             </GridView>
                         </ListView.View>
@@ -57,7 +57,7 @@
                     <ListView x:Name="ClientsView" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=Id}"/>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=Id}"/>
                                 <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}"/>
                                 <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Path=ClientStatus.Name}"/>
                                 <GridViewColumn Header="Менеджер" DisplayMemberBinding="{Binding Path=Manager.Name}"/>
@@ -96,7 +96,7 @@
                     <ListView x:Name="ProductsView" ItemsSource="{Binding Products}">
                         <ListView.View> 
                             <GridView>
-                                <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=Id}"/>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=Id}"/>
                                 <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}"/>
                                 <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Path=Price}"/>
                                 <GridViewColumn Header="Подписка ли" DisplayMemberBinding="{Binding Path=Is_sub}"/>

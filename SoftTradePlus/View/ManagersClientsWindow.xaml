@@ -11,7 +11,7 @@
         <ListView x:Name="ClientsView" ItemsSource="{Binding Clients}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=Id}"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=Id}"/>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}"/>
                     <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Path=ClientStatus.Name}"/>
                     <GridViewColumn Header="Менеджер" DisplayMemberBinding="{Binding Path=Manager.Name}"/>
