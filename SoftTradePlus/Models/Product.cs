@@ -15,7 +15,6 @@ namespace SoftTradePlus.Models
         private float _price;
         private bool _is_sub;
         private DateTime? _sub_end;
-        //private List<Client> _clients;
 
         public List<Client> Clients { get; set; } = new List<Client>();
         public int Id { 
