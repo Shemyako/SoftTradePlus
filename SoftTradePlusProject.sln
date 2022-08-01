@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftTradePlus", "SoftTradePlus\SoftTradePlus.csproj", "{D6EB7BF6-B0A6-4BA4-9601-CE3A75239EAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftTradePlus", "SoftTradePlus\SoftTradePlus.csproj", "{D6EB7BF6-B0A6-4BA4-9601-CE3A75239EAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftTradeUnitTest", "SoftTradeUnitTest\SoftTradeUnitTest.csproj", "{5F3100DE-4CC1-4BC9-A8A6-36B8748E28A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D6EB7BF6-B0A6-4BA4-9601-CE3A75239EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6EB7BF6-B0A6-4BA4-9601-CE3A75239EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6EB7BF6-B0A6-4BA4-9601-CE3A75239EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F3100DE-4CC1-4BC9-A8A6-36B8748E28A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F3100DE-4CC1-4BC9-A8A6-36B8748E28A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F3100DE-4CC1-4BC9-A8A6-36B8748E28A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F3100DE-4CC1-4BC9-A8A6-36B8748E28A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

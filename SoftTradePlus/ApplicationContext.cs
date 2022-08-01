@@ -18,11 +18,11 @@ namespace SoftTradePlus
 
         public ApplicationContext()
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-QLF1U61;Database=SoftTrade;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-QLF1U61;Database=2SoftTrade;Trusted_Connection=True;");
         }
     }
 }
