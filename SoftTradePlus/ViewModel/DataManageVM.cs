@@ -176,8 +176,11 @@ namespace SoftTradePlus.VievModel
 
                         // update managers list
                         Managers = db.Managers.ToList();
-
                         MainWindow.viewManager.ItemsSource = Managers;
+
+                        // update clients list
+                        Clients = db.Clients.ToList();
+                        MainWindow.viewClient.ItemsSource = Clients;
 
                     }));
             }

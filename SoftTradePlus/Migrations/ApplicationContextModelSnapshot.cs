@@ -35,6 +35,8 @@ namespace SoftTradePlus.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("ClientProduct");
+
+
                 });
 
             modelBuilder.Entity("SoftTradePlus.Models.Client", b =>

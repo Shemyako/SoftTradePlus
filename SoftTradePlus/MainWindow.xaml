@@ -26,7 +26,7 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <WrapPanel Grid.Row="1" ItemWidth="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <WrapPanel Grid.Row="1" ItemWidth="190" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Content="Создать" Foreground="YellowGreen" Background="Green" 
                                 Command="{Binding AddManager}" Margin="10"/>
                         <Button Content="Изменить" 

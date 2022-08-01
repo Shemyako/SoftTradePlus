@@ -135,6 +135,9 @@ namespace SoftTradeUnitTest
 
             // deleting changes
             db.Products.Remove(product);
+            db.Clients.Remove(client);
+            db.Managers.Remove(manager);
+            db.ClientStatuses.Remove(status);
             db.SaveChanges();
         }
     }
