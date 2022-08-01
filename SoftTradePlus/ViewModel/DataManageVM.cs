@@ -166,6 +166,10 @@ namespace SoftTradePlus.VievModel
                         if (manager is null)
                             return;
 
+                        // confirm deleting
+                        View.ConfirmWindow confirmWindow = new View.ConfirmWindow();
+                        if (confirmWindow.ShowDialog() == false) return;
+
                         // delete him and save
                         db.Managers.Remove(manager);
                         db.SaveChanges();
@@ -321,6 +325,11 @@ namespace SoftTradePlus.VievModel
                         Product? product = (Product?)selectedItem;
                         if (product is null)
                             return;
+
+                        // confirm deleting
+                        View.ConfirmWindow confirmWindow = new View.ConfirmWindow();
+                        if (confirmWindow.ShowDialog() == false) return;
+
                         // delete it and save
                         db.Products.Remove(product);
                         db.SaveChanges();
@@ -471,6 +480,10 @@ namespace SoftTradePlus.VievModel
                         Client? client = (Client?)selectedItem;
                         if (client is null)
                             return;
+
+                        // confirm deleting
+                        View.ConfirmWindow confirmWindow = new View.ConfirmWindow();
+                        if (confirmWindow.ShowDialog() == false) return;
 
                         // delete hom and save
                         db.Clients.Remove(client);
